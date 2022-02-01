@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Demo: Range Slider Component</title>
+    <meta charset="utf-8"/>
+
+    <!-- Capture and log custom events -->
+    <script>  
+      document.addEventListener(
+        'demo-range-changed',
+        (evt) => console.log(evt)
+      );
+    </script>
+
+    <!-- Custom styling for demo-range-slider instances -->
+    <style>
+      demo-range-slider {
+        --slider-thumb-color: purple;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <!-- Web Component instance 'demo-range-slider' - use attributes for custom value settings -->
+    <demo-range-slider layout="default" min="0" max="500" current-min="20" current-max="80" cevt-name="demo-range-changed"> </demo-range-slider>
+
+    <!-- JS with component class -->
+    <script type="module" src="../dist/demo-range-slider.js" async="async"> </script>
+
+  </body>
+</html>

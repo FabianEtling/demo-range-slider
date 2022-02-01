@@ -1,0 +1,92 @@
+@import '../theme/_colors.scss';
+
+
+/* *** Styling API *** */
+
+:host {
+  --slider-thumb-color: #333;
+  --slider-track-color: #aaa;
+  --slider-progress-color: #{$theme-color-primary};
+}
+
+
+
+/* *** Shadow DOM Host *** */
+
+:host .demo-range-slider {
+  width: 100%;
+}
+
+:host #sliders .input-range {
+  margin: 0;
+}
+
+:host #input-forms {
+  margin-top: 40px;
+}
+
+
+
+/* *** Generic *** */
+
+.input-range {
+  -webkit-appearance: none;
+  height: 8px;
+  outline: none !important;
+  appearance: none;
+  border: none;
+}
+
+.input-range:hover {
+  outline: none;
+}
+
+
+
+/* *** Firefox *** */
+
+/* Thumb */
+
+.input-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--slider-thumb-color);
+  border-radius: 50%;
+  border: none;
+  outline: none;
+}
+
+
+/* Track */
+
+.input-range::-moz-range-progress {
+  height: 100%;
+  border: none;
+}
+
+.input-range::-moz-range-track { 
+  height: 100%;
+  border: none;
+}
+
+
+/* Slider low */
+
+#slider_low::-moz-range-progress {
+  background-color: var(--slider-track-color);
+}
+
+#slider_low::-moz-range-track {  
+  background-color: var(--slider-progress-color);
+}
+
+
+/* Slider high */
+
+#slider_high::-moz-range-progress {
+  background-color: var(--slider-progress-color);
+}
+
+#slider_high::-moz-range-track {  
+  background-color: var(--slider-track-color);
+}
