@@ -2,12 +2,14 @@
 
 Range slider demo using only Web Components standards.
 
-The component is self-contained, customizable (via HTML attributes as well as setter methods), stylable (via CSS custom properties) and 'themable'. Changing properties are reflected by attributes and also emitted via a custom event.
+The component is self-contained, customizable (via HTML attributes as well as setter methods), stylable (via CSS custom properties) and 'themable'. Changing properties are reflected by attributes. On change, the current values are also emitted via a custom event.
 
 
 ## Please note
 
-This is just meant to be a technical feasibility demo. At the moment, component styling is ONLY provided for Firefox (this allows for studying user agent styling in other browsers). And due to some sloppy math it is not yet as smooth as it should be :)
+This is just meant to be a technical feasibility demo. Issues:
+* At the moment, component styling is ONLY done for Firefox (cf. user agent styling in other browsers). 
+* Due to some sloppy math (?) it slides not yet as smooth as it should :)
 
 
 ## Usage
@@ -60,4 +62,4 @@ Run `npm install`.
 
 ## Build
 
-`npm run start` builds the component and starts a server on `localhost:3000`. For testing porposes, a demo HTML page is provided at `localhost:3000/test/demo.html`.
+`npm run start` builds the component and starts a server on [localhost:3000](http://localhost:3000). For testing porposes, a demo HTML page is provided at [localhost:3000/test/demo.html](http://localhost:3000/test/demo.html).
