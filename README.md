@@ -2,7 +2,7 @@
 
 Range slider demo using only Web Components standards.
 
-The component is self-contained, customizable (via HTML attributes as well as setter methods), stylable (via CSS custom properties) and 'themeable'. Changing properties are reflected by attributes and also emitted via a custom event.
+The component is self-contained, customizable (via HTML attributes as well as setter methods), stylable (via CSS custom properties) and 'themable'. Changing properties are reflected by attributes and also emitted via a custom event.
 
 
 ## Please note
@@ -18,20 +18,20 @@ This is just meant to be a technical feasibility demo. At the moment, component 
 <demo-range-slider
   layout="default"
   min="0" 
-  max="500"
+  max="100"
   current-min="20"
   current-max="80"
   cevt-name="demo-range-changed">
 </demo-range-slider>
 
 <!-- JS with component class -->
-<script type="module" src="../dist/demo-range-slider.js" async="async"> </script>
+<script type="module" src="../dist/demo-range-slider.js"> </script>
 
 
 ```
 
 The attributes can be used for configuration:
-* `layout (default | simple)`: Use `default` to provide text input forms with the slider. `simple` shows only a slider.
+* `layout (default | simple)`: `default` provides text input forms with the slider, `simple` shows only the slider.
 * `min` and `max` set the slider range.
 * `current-min` and `current-max` set the initial values for the slider thumbs.
 * `cevt-name` is the name of the custom event emitted by the component when changed.
