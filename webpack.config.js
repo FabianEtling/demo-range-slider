@@ -1,4 +1,4 @@
-const autoprefixer = require('autoprefixer');
+/* const autoprefixer = require('autoprefixer'); */
 const path = require('path');
 
 module.exports = {
@@ -9,10 +9,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        loader: 'css-loader',
-      },
       {
         test: /\.s[ac]ss$/,
         include: [
@@ -30,14 +26,18 @@ module.exports = {
           }
         ]
       },
-    
-      /* {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-        },
-      } */
+      {
+        test: /\.m?js$/,
+        include: [
+          path.resolve(__dirname, "src")
+        ],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
     ]
   },
 };
