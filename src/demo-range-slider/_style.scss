@@ -1,12 +1,12 @@
-@import '../theme/_colors.scss';
+@import '../../theme/_colors.scss';
 
 
 /* *** Styling API *** */
 
 :host {
-  --slider-thumb-color: #333;
-  --slider-track-color: #aaa;
-  --slider-progress-color: #{$theme-color-primary};
+  --slider-thumb-color: #{$theme-color-primary};
+  --slider-track-color: #{$theme-color-background};
+  --slider-progress-color: #{$theme-color-secondary};
 }
 
 

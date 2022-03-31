@@ -62,4 +62,16 @@ Run `npm install`.
 
 ## Build
 
-`npm run start` builds the component and starts a server on [localhost:3000](http://localhost:3000). For testing porposes, a demo HTML page is provided at [localhost:3000/test/demo.html](http://localhost:3000/test/demo.html).
+`npm run start` builds the component and starts a server on [localhost:3000](http://localhost:3000). 
+
+
+## Test
+
+### Range Slider Component
+
+For testing porposes, a demo HTML page is provided at [localhost:3000/test/demo.html](http://localhost:3000/test/demo.html).
+
+
+### Poem Filter Component
+
+The `demo-poem-filter` element integrates the slider to filter a list of poem data, see [localhost:3000/test/demo_poem-filter.html](http://localhost:3000/test/demo.html).

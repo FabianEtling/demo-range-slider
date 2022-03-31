@@ -1,0 +1,29 @@
+@import '../../theme/_colors.scss';
+
+
+/* *** Styling API *** */
+
+:host {
+  --list-item-color: #{$theme-color-secondary};
+  --list-item-color--hover: #{$theme-color-primary};
+  --list-item-background--hover: #{$theme-color-background};
+}
+
+
+/* *** Shadow DOM Host *** */
+
+:host {
+  display: block;
+}
+
+
+/* List items */
+
+:host .demo-poem-list div {
+  color: var(--list-item-color);
+}
+
+:host .demo-poem-list div:hover {
+  color: var(--list-item-color--hover);
+  background-color: var(--list-item-background--hover);
+}

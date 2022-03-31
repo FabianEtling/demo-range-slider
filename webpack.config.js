@@ -2,9 +2,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: ['./src/demo-range-slider.js'],
+  entry: ['./src/bundle.js'],
   output: {
-    filename: 'demo-range-slider.js',
+    filename: 'component-bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {

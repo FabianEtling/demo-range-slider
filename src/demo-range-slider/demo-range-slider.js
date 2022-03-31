@@ -1,4 +1,5 @@
 import Template from './_template.js';
+import {eventBusStd} from '../demo-bus/bus-config.js';
 
 
 export default class DemoRangeSlider extends HTMLElement {
@@ -141,14 +142,8 @@ export default class DemoRangeSlider extends HTMLElement {
     // Save component DOM references
     this._dom = Template.mapDOM(this._sR);
 
-
+    
     // --- Initialize sliders ---
-
-    // Init sliders
-    this._dom.slider_low.value = this.current_min;
-    this._dom.slider_low.setAttribute('value', this.current_min);
-    this._dom.slider_high.value = this.current_max;
-    this._dom.slider_high.setAttribute('value', this.current_max);
 
     // Calc weld
     const weld = (this.current_min + this.current_max) / 2;
@@ -158,6 +153,12 @@ export default class DemoRangeSlider extends HTMLElement {
     this._dom.slider_low.setAttribute('max', weld);
     this._dom.slider_high.setAttribute('min', weld);
     this._dom.slider_high.setAttribute('max', this.max);
+
+    // Init sliders
+    this._dom.slider_low.value = this.current_min;
+    this._dom.slider_low.setAttribute('value', this.current_min);
+    this._dom.slider_high.value = this.current_max;
+    this._dom.slider_high.setAttribute('value', this.current_max);
 
 
     // --- Initialize forms ---
@@ -200,21 +201,19 @@ export default class DemoRangeSlider extends HTMLElement {
         this.current_max = this._dom.slider_high.value;
         break;
       case "form_low":
-        this.current_min = this._dom.form_low.value;
+        if (this._dom.form_low.value >= this.min && this._dom.form_low.value < this.current_max) {
+          this.current_min = this._dom.form_low.value;
+        }
         break;
       case "form_high":
-        this.current_max = this._dom.form_high.value;
+        if (this._dom.form_high.value <= this.max && this._dom.form_high.value > this.current_min) {
+          this.current_max = this._dom.form_high.value;
+        }
         break;
     }
 
     
     // --- Update sliders ---
-
-    // Update values
-    this._dom.slider_low.value = this.current_min;
-    this._dom.slider_low.setAttribute('value', this.current_min);
-    this._dom.slider_high.value = this.current_max;
-    this._dom.slider_high.setAttribute('value', this.current_max);
 
     // Recalc weld
     const weld = (this.current_min + this.current_max) / 2;
@@ -222,6 +221,12 @@ export default class DemoRangeSlider extends HTMLElement {
     // Set 'inner' @min and @max boundaries
     this._dom.slider_low.setAttribute('max', weld);
     this._dom.slider_high.setAttribute('min', weld);
+
+    // Update values
+    this._dom.slider_low.value = this.current_min;
+    this._dom.slider_low.setAttribute('value', this.current_min);
+    this._dom.slider_high.value = this.current_max;
+    this._dom.slider_high.setAttribute('value', this.current_max);
 
 
     // --- Update forms ---
@@ -250,10 +255,10 @@ export default class DemoRangeSlider extends HTMLElement {
   _redraw(weld) {
     
     // Length ratio slider_low : slider_high
-    const ratio = weld / this.max;
+    const ratio = (weld - this.min) / (this.max - this.min);
 
-    const percentage_slider_low = Math.floor(ratio * 99);
-    const percentage_slider_high = Math.floor(99 - ratio * 99);
+    const percentage_slider_low = ratio * 99;
+    const percentage_slider_high = 99 - ratio * 99;
 
     // Redraw sliders
     this._dom.slider_low.style.width = percentage_slider_low + "%";
@@ -276,7 +281,12 @@ export default class DemoRangeSlider extends HTMLElement {
     })
 
     // Dispatch
-    this.dispatchEvent(ce);
+
+    // Using listener on parent component demo-poem-filter
+    // this.dispatchEvent(ce);
+    
+    // Using event bus
+    eventBusStd.fire(ce);
 
   }
 

@@ -1,0 +1,23 @@
+@import '../../theme/_colors.scss';
+
+
+/* *** Styling API *** */
+
+:host {
+  --primary-color: #{$theme-color-primary};
+}
+
+
+/* Range slider */
+
+:host demo-range-slider {
+  --slider-thumb-color: var(--primary-color);
+}
+
+
+/* Poem list */
+
+:host demo-poem-list {
+  margin-top: 2em;
+  --list-item-color--hover: var(--primary-color);
+}
